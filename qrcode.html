@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.min.js"></script>
+  </head>
+  <body>
+    <div id="qrCodeContainer">
+      <h1>QR Code</h1>
+      <img id="qrCodeImage" src="" alt="QR Code" />
+    </div>
+
+    <script>
+      // Générer le QR code avec le texte souhaité
+      var qrCodeText = "https://www.lapharmaderepu.com/";
+      var qrCode = qrcode(0, "L"); // Paramètres: niveau de correction d'erreur (0 à 3), mode (numérique, alphanumérique, binaire, kanji)
+      qrCode.addData(qrCodeText);
+      qrCode.make();
+
+      // Insérer le QR code dans l'élément img
+      var qrCodeImage = document.getElementById("qrCodeImage");
+      qrCodeImage.src = qrCode.createDataURL(10, 0); // Paramètres: taille du module (10 = 1px par module), marges
+    </script>
+  </body>
+</html>

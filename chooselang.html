@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bienvenue au J.O 2024 Paris</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f0f0f0;
+        padding: 20px;
+      }
+
+      #page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .header h1 {
+        font-size: 40px;
+      }
+      .drapeau_div {
+        display: flex;
+        flex-direction: row;
+        margin-top: 40px;
+      }
+
+      .drapeau_desc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 40px;
+      }
+
+      .drapeau_desc p {
+        color: rgba(16, 16, 16);
+        font-size: 22px;
+        margin-top: 30px;
+      }
+
+      .drapeau {
+        width: 240px;
+        height: 160px;
+        transition: 0.3s;
+        cursor: pointer;
+      }
+
+      header {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        background-color: #f0f0f0; /* Couleur de fond du header */
+        padding: 10px; /* Espacement interne du header */
+        border-top-left-radius: 10px; /* Arrondi du coin supérieur gauche */
+      }
+
+      header img {
+        width: 40px;
+      }
+
+      audio {
+        display: none;
+      }
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+        z-index: 9999; /* Assurez-vous qu'il est au-dessus de tous les autres éléments */
+      }
+
+      /* Styles CSS pour le contenu du div overlay */
+      .overlay-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: 40px;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.22);
+      }
+
+      /* ECRAN MOBILE */
+      @media screen and (max-width: 600px) {
+        .container {
+          max-width: 100%;
+          padding: 10px;
+        }
+
+        .header h1 {
+          font-size: 28px;
+        }
+
+        .drapeau_div {
+          flex-direction: column;
+          align-items: center;
+          margin-top: 20px;
+        }
+
+        .drapeau_desc {
+          margin: 10px 0;
+        }
+
+        .drapeau {
+          width: 120px;
+        }
+
+        .drapeau_desc p {
+          font-size: 16px;
+          margin-top: 5px;
+        }
+      }
+
+      /* Pour les écrans moyens de 601px à 1024px (pour les tablettes et les plus petits ordinateurs portables) */
+      @media screen and (min-width: 601px) and (max-width: 1024px) {
+        .drapeau_div {
+          gap: 10px;
+        }
+      }
+
+      /* Pour les écrans plus grands à partir de 1025px (pour les ordinateurs de bureau) */
+      @media screen and (min-width: 1025px) {
+        .container {
+          max-width: 800px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section id="overlaytab">
+      <div id="overlay" class="overlay">
+        <div class="overlay-content">
+          <!-- Contenu du div overlay -->
+          <h2 id="welcomeText"></h2>
+          <p></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="page">
+      <div class="container">
+        <h1>Bienvenue au J.O 2024 Paris</h1>
+        <p>
+          La plus grande célébration du sport arrive bientôt à Paris. Restez à
+          l'écoute pour plus d'informations !
+        </p>
+      </div>
+
+      <div class="header">
+        <h1>Choissez votre pays:</h1>
+      </div>
+
+      <div class="drapeau_div">
+        <div class="drapeau_desc">
+          <img
+            src="france.svg"
+            id="fr"
+            alt="Drapeau de la France"
+            class="drapeau"
+            data-pays='{"France": "Bienvenue en France !\nNous vous souhaitons un bon séjour en France."}'
+          />
+          <p>France</p>
+          <audio controls id="audioBienvenue">
+            <source src="Truck.wav" type="audio/wav" />
+            Votre navigateur ne prend pas en charge l'élément audio.
+          </audio>
+        </div>
+        <div class="drapeau_desc">
+          <img
+            src="uk.png"
+            alt="Drapeau de l'Angleterre"
+            class="drapeau"
+            data-pays='{"England": "Welcome in France !\nWe wish you a good stay in France."}'
+          />
+          <p>England</p>
+        </div>
+        <div class="drapeau_desc">
+          <img
+            src="china.png"
+            alt="Drapeau de la Chine"
+            class="drapeau"
+            data-pays='{"China": "歡迎來到法國！\n我們祝福您在法國過得愉快。"}'
+          />
+          <p>China</p>
+        </div>
+        <div class="drapeau_desc">
+          <img
+            src="spain.png"
+            alt="Drapeau de l'Espagne"
+            class="drapeau"
+            data-pays='{"Spain": "Bienvenido a Francia !\nLe deseamos una buena estancia en Francia."}'
+          />
+          <p>Spain</p>
+        </div>
+      </div>
+    </section>
+
+    <header>
+      <img src="pharma.jpg" alt="pharmalogo" />
+    </header>
+    <script>
+      const imagesDrapeaux = document.querySelectorAll(".drapeau");
+
+      // Parcourez chaque image de drapeau
+      imagesDrapeaux.forEach((image) => {
+        // Ajoutez un écouteur d'événements pour le survol
+        image.addEventListener("mouseover", () => {
+          // Lors du survol, agrandissez et centrer l'image
+          image.style.transform = "scale(1.2)";
+        });
+
+        // Ajoutez un écouteur d'événements pour la fin du survol
+        image.addEventListener("mouseout", () => {
+          // Lorsque le survol se termine, rétablissez la taille normale de l'image
+          image.style.transform = "scale(1)";
+        });
+      });
+
+      const drapeauFrance = document.getElementById("fr");
+      const overlay = document.getElementById("overlay");
+
+      imagesDrapeaux.forEach((image) => {
+        image.addEventListener("click", () => {
+          // Afficher l'overlay
+          overlay.style.display = "block";
+          // Jouer l'audio
+          audioBienvenue.play();
+          // Vérifiez périodiquement la durée de l'audio
+          const checkDuration = setInterval(function () {
+            // Vérifiez si la durée de l'audio est supérieure ou égale à 4 secondes
+            if (audioBienvenue.duration >= 4) {
+              // Rediriger vers une autre page
+              window.location.href = "https://www.lapharmaderepu.com/";
+              clearInterval(checkDuration); // Arrêtez la vérification de la durée
+            }
+          }, 4000); // Vérifiez toutes les secondes
+        });
+
+        image.addEventListener("click", () => {
+          const paysData = JSON.parse(image.dataset.pays);
+          const paysName = Object.keys(paysData)[0]; // Récupérer le nom du pays
+          const paysText = paysData[paysName]; // Récupérer le texte associé au pays
+
+          // Ajouter une nouvelle ligne après le point d'exclamation
+          const modifiedPaysText = paysText.replace("!", "!<br><br>");
+
+          // Mettre à jour le contenu des balises h2 et p du div overlay
+          const welcomeText = document.getElementById("welcomeText");
+
+          welcomeText.innerHTML = modifiedPaysText; // Mettre à jour le texte avec le nom du pays
+
+          // Afficher le div overlay
+          overlay.style.display = "block";
+        });
+      });
+    </script>
+  </body>
+</html>
